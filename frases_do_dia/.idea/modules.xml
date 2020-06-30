@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/frases_do_dia.iml" filepath="$PROJECT_DIR$/frases_do_dia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/frases_do_dia_android.iml" filepath="$PROJECT_DIR$/android/frases_do_dia_android.iml" />
+    </modules>
+  </component>
+</project>

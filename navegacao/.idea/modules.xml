@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/navegacao.iml" filepath="$PROJECT_DIR$/navegacao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/navegacao_android.iml" filepath="$PROJECT_DIR$/android/navegacao_android.iml" />
+    </modules>
+  </component>
+</project>
