@@ -18,6 +18,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   Completer<GoogleMapController> _controllerMaps = Completer();
   Set<Marker> _marcadores = {};
+  Set<Polygon> _polygons = {};
+  Set<Polyline> _polylines = {};
 
   _onMapCreated(GoogleMapController controller) {
     _controllerMaps.complete(controller);
@@ -32,32 +34,58 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   _carregarMarcadores() {
     Set<Marker> marcadoresLocal = {};
     Marker marcadorShopping = Marker(
-        markerId: MarkerId('Marcador-Shopping'), 
+        markerId: MarkerId('Marcador-Shopping'),
         position: LatLng(-23, -46),
-        infoWindow: InfoWindow(
-          title: 'Shopping'
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(
-          BitmapDescriptor.hueMagenta
-        ),
-        onTap: () => debugPrint('Shopping')
-        );
-    
+        infoWindow: InfoWindow(title: 'Shopping'),
+        icon:
+            BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
+        onTap: () => debugPrint('Shopping'));
+
     Marker marcadorCartorio = Marker(
         markerId: MarkerId('Marcador-Cartorio'),
         position: LatLng(-23.5, -46.5),
-        infoWindow: InfoWindow(
-          title: 'Cartorio'
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(
-          BitmapDescriptor.hueAzure
-        )
-        );
-    
+        infoWindow: InfoWindow(title: 'Cartorio'),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure));
+
     marcadoresLocal.add(marcadorShopping);
     marcadoresLocal.add(marcadorCartorio);
     setState(() {
       _marcadores = marcadoresLocal;
+    });
+
+    Set<Polygon> listaPolygons = {};
+    Polygon polygon = Polygon(
+        polygonId: PolygonId('polygon1'),
+        fillColor: Colors.green,
+        strokeColor: Colors.red,
+        strokeWidth: 10,
+        consumeTapEvents: true,
+        zIndex: 0,
+        points: [
+          LatLng(-23.46, -46.56),
+          LatLng(-23.56, -46.56),
+          LatLng(-23.66, -46.66),
+        ],
+        onTap: () => debugPrint('fala zeze'),
+        );
+    listaPolygons.add(polygon);
+    Polygon polygon2 = Polygon(
+        polygonId: PolygonId('polygon1'),
+        fillColor: Colors.green,
+        strokeColor: Colors.red,
+        strokeWidth: 10,
+        consumeTapEvents: true,
+        zIndex: 1,
+        points: [
+          LatLng(-15.46, -46.56),
+          LatLng(-28.56, -46.56),
+          LatLng(-35.66, -46.66),
+        ],
+        onTap: () => debugPrint('fala zeze'),
+        );
+    listaPolygons.add(polygon2);
+    setState(() {
+      _polygons = listaPolygons;
     });
   }
 
@@ -83,6 +111,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           ),
           onMapCreated: _onMapCreated,
           markers: _marcadores,
+          polygons: _polygons,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
