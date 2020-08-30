@@ -55,37 +55,52 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
     Set<Polygon> listaPolygons = {};
     Polygon polygon = Polygon(
-        polygonId: PolygonId('polygon1'),
-        fillColor: Colors.green,
-        strokeColor: Colors.red,
-        strokeWidth: 10,
-        consumeTapEvents: true,
-        zIndex: 0,
+      polygonId: PolygonId('polygon1'),
+      fillColor: Colors.green,
+      strokeColor: Colors.red,
+      strokeWidth: 10,
+      consumeTapEvents: true,
+      zIndex: 0,
+      points: [
+        LatLng(-23.46, -46.56),
+        LatLng(-23.56, -46.56),
+        LatLng(-23.66, -46.66),
+      ],
+      onTap: () => debugPrint('fala zeze'),
+    );
+    listaPolygons.add(polygon);
+    Polygon polygon2 = Polygon(
+      polygonId: PolygonId('polygon1'),
+      fillColor: Colors.green,
+      strokeColor: Colors.red,
+      strokeWidth: 10,
+      consumeTapEvents: true,
+      zIndex: 1,
+      points: [
+        LatLng(-15.46, -46.56),
+        LatLng(-28.56, -46.56),
+        LatLng(-35.66, -46.66),
+      ],
+      onTap: () => debugPrint('fala zeze'),
+    );
+    listaPolygons.add(polygon2);
+    setState(() {
+      _polygons = listaPolygons;
+    });
+
+    Set<Polyline> listaPolylines = {};
+    Polyline polilyne = Polyline(
+        polylineId: PolylineId('polyline'),
+        color: Colors.amber,
+        width: 20,
         points: [
           LatLng(-23.46, -46.56),
           LatLng(-23.56, -46.56),
           LatLng(-23.66, -46.66),
-        ],
-        onTap: () => debugPrint('fala zeze'),
-        );
-    listaPolygons.add(polygon);
-    Polygon polygon2 = Polygon(
-        polygonId: PolygonId('polygon1'),
-        fillColor: Colors.green,
-        strokeColor: Colors.red,
-        strokeWidth: 10,
-        consumeTapEvents: true,
-        zIndex: 1,
-        points: [
-          LatLng(-15.46, -46.56),
-          LatLng(-28.56, -46.56),
-          LatLng(-35.66, -46.66),
-        ],
-        onTap: () => debugPrint('fala zeze'),
-        );
-    listaPolygons.add(polygon2);
+        ]);
+    listaPolylines.add(polilyne);
     setState(() {
-      _polygons = listaPolygons;
+      _polylines = listaPolylines;
     });
   }
 
@@ -106,12 +121,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         child: GoogleMap(
           mapType: MapType.hybrid,
           initialCameraPosition: CameraPosition(
-            target: LatLng(-23, -46),
+            target: LatLng(-23.46, -46.56),
             zoom: 15,
           ),
           onMapCreated: _onMapCreated,
           markers: _marcadores,
           polygons: _polygons,
+          polylines: _polylines,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
