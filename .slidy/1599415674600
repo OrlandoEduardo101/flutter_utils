@@ -1,0 +1,10 @@
+flutter_desktop_test/lib/main.dart
+flutter_desktop_test/lib/app/app_module.dart
+flutter_desktop_test/lib/app/app_widget.dart
+flutter_desktop_test/lib/app/modules/home/home_module.dart
+flutter_desktop_test/lib/app/app_controller.dart
+flutter_desktop_test/lib/app/modules/home/home_page.dart
+flutter_desktop_test/test/app/app_controller_test.dart
+flutter_desktop_test/test/app/modules/home/home_page_test.dart
+flutter_desktop_test/lib/app/modules/home/home_controller.dart
+flutter_desktop_test/test/app/modules/home/home_controller_test.dart
