@@ -1,5 +1,5 @@
 import 'package:clean_dart_study/modules/login/domain/errors/errors.dart';
-import 'package:clean_dart_study/modules/login/infra/datasources/login_datasource.dart';
+import 'package:clean_dart_study/modules/login/infra/datasources/login_datasource_interface.dart';
 import 'package:clean_dart_study/modules/login/infra/models/user_model.dart';
 import 'package:clean_dart_study/modules/login/infra/repositories/login_repository.dart';
 import 'package:dartz/dartz.dart';
