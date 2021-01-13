@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  Future<Map> _recuperarPreco () async{
+  Future<Map> _recuperarPreco () async {
     String url = "https://blockchain.info/ticker";
     http.Response response = await http.get(url);
     return json.decode(response.body);
@@ -51,6 +51,6 @@ class _HomeState extends State<Home> {
           child: Text(resultado),
           );
       },
-     );
+    );
   }
 }
