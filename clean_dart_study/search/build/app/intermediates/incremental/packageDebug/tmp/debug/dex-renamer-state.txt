@@ -1,0 +1,4 @@
+#Thu Oct 01 11:11:53 BRT 2020
+base.0=/home/orlando-eduardo101/AndroidStudioProjects/flutter_utils/clean_dart_study/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
