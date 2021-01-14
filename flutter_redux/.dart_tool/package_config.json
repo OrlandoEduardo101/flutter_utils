@@ -8,6 +8,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "bloc",
+      "rootUri": "file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/bloc-6.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0-nullsafety.3",
       "packageUri": "lib/",
@@ -140,7 +146,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-13T18:09:22.934499Z",
+  "generated": "2021-01-14T02:03:43.976930Z",
   "generator": "pub",
   "generatorVersion": "2.12.0-29.10.beta"
 }

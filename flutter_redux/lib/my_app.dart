@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'redux/my_home_page.dart';
+import 'bloc/my_home_pageBloc.dart';
+//import 'redux/my_home_page.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePageBloc(title: 'Flutter Demo Home Page'),
     );
   }
 }
