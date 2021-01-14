@@ -34,6 +34,10 @@ fake_async
 2.12
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0-nullsafety.3/
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0-nullsafety.3/lib/
+flutter_mobx
+2.7
+file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-1.1.0+2/
+file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/flutter_mobx-1.1.0+2/lib/
 matcher
 2.12
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10-nullsafety.3/
@@ -42,6 +46,10 @@ meta
 2.12
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0-nullsafety.6/
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0-nullsafety.6/lib/
+mobx
+2.7
+file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+4/
+file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+4/lib/
 path
 2.12
 file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.3/
