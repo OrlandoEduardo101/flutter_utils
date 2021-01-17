@@ -81,7 +81,7 @@
     },
     {
       "name": "flutter_triple",
-      "rootUri": "file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/flutter_triple-0.0.27",
+      "rootUri": "file:///home/orlando-eduardo101/.pub-cache/hosted/pub.dartlang.org/flutter_triple-0.0.32",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,7 +182,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-17T19:09:23.889781Z",
+  "generated": "2021-01-17T19:30:20.649902Z",
   "generator": "pub",
   "generatorVersion": "2.12.0-29.10.beta"
 }
