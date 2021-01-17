@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'mobx/my_home_pageMobx.dart';
+import 'rx_triple/my_home_pageRXtriple.dart';
 //import 'redux/my_home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePageMobx(title: 'Flutter Demo Home Page'),
+      home: MyHomePageRXtriple(title: 'Flutter Demo Home Page'),
     );
   }
 }
