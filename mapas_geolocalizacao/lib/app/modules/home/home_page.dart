@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'home_controller.dart';
 
@@ -20,6 +21,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Set<Marker> _marcadores = {};
   Set<Polygon> _polygons = {};
   Set<Polyline> _polylines = {};
+  CameraPosition cameraPosition = CameraPosition(
+        target: LatLng(-23.46, -46.56),
+        zoom: 15,
+      );
 
   _onMapCreated(GoogleMapController controller) {
     _controllerMaps.complete(controller);
@@ -27,8 +32,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   _movimentarCamera() async {
     GoogleMapController gController = await _controllerMaps.future;
-    gController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(-21, -45), zoom: 19, tilt: 30, bearing: 30)));
+    gController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
 
   _carregarMarcadores() {
@@ -104,11 +108,48 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     });
   }
 
+  _recuperarLocalizacaoAtual() async {
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    print('LOCALIZAÇÂO:' + position.toString());
+
+    setState(() {
+      cameraPosition = CameraPosition(
+        target: LatLng(position.latitude, position.longitude),
+        zoom: 15,
+      );
+      _movimentarCamera();
+    });
+  }
+
+  _adicionarListener(){
+   // var locator = Geolocator();
+    Geolocator.getPositionStream(
+      distanceFilter: 10,
+      desiredAccuracy: LocationAccuracy.high,
+      forceAndroidLocationManager: true,
+
+    ).listen((event) {
+      print('LOCALIZAÇÂO:' + event.toString());
+      setState(() {
+        cameraPosition = CameraPosition(
+          target: LatLng(event.latitude, event.longitude),
+          zoom: 15,
+        );
+        _movimentarCamera();
+      });
+    });
+
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _carregarMarcadores();
+   // _carregarMarcadores();
+    //_recuperarLocalizacaoAtual();
+    _adicionarListener();
   }
 
   @override
@@ -120,14 +161,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Container(
         child: GoogleMap(
           mapType: MapType.hybrid,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(-23.46, -46.56),
-            zoom: 15,
-          ),
+          initialCameraPosition: cameraPosition,
           onMapCreated: _onMapCreated,
           markers: _marcadores,
           polygons: _polygons,
           polylines: _polylines,
+          myLocationEnabled: true,
+          myLocationButtonEnabled: true,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
