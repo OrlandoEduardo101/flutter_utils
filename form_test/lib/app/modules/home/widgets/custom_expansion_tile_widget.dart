@@ -17,7 +17,7 @@ class _CustomExpansionTileWidgetState extends State<CustomExpansionTileWidget> {
     return Card(
       elevation: 7,
       child: ExpansionTile(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.grey[200],
         title: Text(
           widget.titleCategory,
         ),
