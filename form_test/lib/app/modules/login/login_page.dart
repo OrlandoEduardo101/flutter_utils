@@ -42,88 +42,93 @@ class LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          isProgress
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Form(
-                  key: _formKey,
-                  autovalidateMode: AutovalidateMode.disabled,
-                  child: Column(
-                    children: <Widget>[
-                      /*TextFormField(
-                      focusNode: _focusCpf,
-                      decoration: InputDecoration(
-                        labelText: 'user'
-                      ),
-                      onChanged: (value) => store.setUser(value),
-                      //validator: (_) => controller.cpf.hasError(),
-                    ), */
-
-                      TextFormField(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            isProgress
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Form(
+                    key: _formKey,
+                    autovalidateMode: AutovalidateMode.disabled,
+                    child: Column(
+                      children: <Widget>[
+                        /*TextFormField(
                         focusNode: _focusCpf,
-                        decoration: InputDecoration(labelText: 'user'),
-                        controller: _textEditingControllerUser,
-                        //onChanged: (value) => store.setUser(value),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 12),
+                        decoration: InputDecoration(
+                          labelText: 'user'
+                        ),
+                        onChanged: (value) => store.setUser(value),
+                        //validator: (_) => controller.cpf.hasError(),
+                      ), */
 
-                      /* TextFormField(
-                      focusNode: _focusPassword,
-                      decoration: InputDecoration(
-                        labelText: 'senha'
-                      ),
-                      onChanged: (value) => store.setUser(value),
-                      //validator: (_) => controller.loginPassword.hasError(),
-                    ), */
+                        TextFormField(
+                          focusNode: _focusCpf,
+                          decoration: InputDecoration(labelText: 'user'),
+                          controller: _textEditingControllerUser,
+                          //onChanged: (value) => store.setUser(value),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(height: 12),
 
-                      TextFormField(
+                        /* TextFormField(
                         focusNode: _focusPassword,
-                        decoration: InputDecoration(labelText: 'senha'),
-                        controller: _textEditingControllerPassword,
-                        //onChanged: (value) => store.setUser(value),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
-                    ],
+                        decoration: InputDecoration(
+                          labelText: 'senha'
+                        ),
+                        onChanged: (value) => store.setUser(value),
+                        //validator: (_) => controller.loginPassword.hasError(),
+                      ), */
+
+                        TextFormField(
+                          focusNode: _focusPassword,
+                          decoration: InputDecoration(labelText: 'senha'),
+                          controller: _textEditingControllerPassword,
+                          //onChanged: (value) => store.setUser(value),
+                          //maxLength: 5,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-          ElevatedButton(
-              onPressed: () async {
-                setState(() {
-                  isProgress = true;
-                });
+            ElevatedButton(
+                onPressed: () async {
+                  setState(() {
+                    isProgress = true;
+                  });
 
-                if (_formKey.currentState!.validate()) {
-                  await store.onClick(_textEditingControllerUser.text,
-                      _textEditingControllerPassword.text, context);
-                  /*ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text('Processing Data')));*/
-                } else {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text('invalid entries')));
-                }
+                  if (_formKey.currentState!.validate()) {
+                    await store.onClick(_textEditingControllerUser.text,
+                        _textEditingControllerPassword.text, context);
+                    
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('invalid entries')));
+                  }
 
-                setState(() {
-                  isProgress = false;
-                });
-              },
-              child: Text('Login'))
-        ],
+                  setState(() {
+                    isProgress = false;
+                  });
+                },
+                child: Text('Login'))
+          ],
+        ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () => print('object'),),
     );
   }
 }
